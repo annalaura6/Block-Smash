@@ -13,8 +13,8 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Racket"))
         {
-            Vector3 reactionForce = collision.impulse / Time.fixedDeltaTime;
-            rb.AddForce(reactionForce * 0.5f);
+            Vector3 force = transform.forward * 10; 
+            rb.AddForce(force, ForceMode.Impulse);
         }
     }
 }

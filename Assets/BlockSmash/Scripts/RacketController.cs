@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class RacketController : MonoBehaviour
 {
-    private Rigidbody rb;
+    [SerializeField] private float _impulse = 200f;
+    
+    private Rigidbody _rb;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -14,8 +16,8 @@ public class RacketController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 force = transform.forward * 100; 
-            ballRb.AddForce(force);
+            Vector3 force = transform.forward * _impulse; 
+            ballRb.AddForce(force, ForceMode.Impulse); 
         }
     }
 }
