@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class BallTriggerWall : MonoBehaviour
 {
-    [SerializeField] private GameObject ballPrefab; 
-    [SerializeField] private Transform spawnPoint;  
+    public GameObject ballPrefab; 
+    public Transform spawnPoint;  
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Ball")) 
+        if (collision.gameObject.CompareTag("Ball")) 
         {
-            Debug.Log("Ball touched the wall."); // Add debug log
+            Debug.Log("Ball collided with the wall."); // Add debug log
             
-            Destroy(other.gameObject); 
+            Destroy(gameObject); // Destroy the current ball
             
-            Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
+            Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity); // Instantiate a new ball
             
             Debug.Log("New ball instantiated."); // Add debug log
         }
