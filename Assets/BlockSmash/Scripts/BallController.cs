@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Racket"))
         {
-            Vector3 force = transform.forward * 10; 
+            Vector3 force = collision.contacts[0].normal * 5;
             rb.AddForce(force, ForceMode.Impulse);
         }
     }

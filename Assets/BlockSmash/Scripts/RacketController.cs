@@ -16,7 +16,7 @@ public class RacketController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 force = transform.forward * _impulse; 
+            Vector3 force = -collision.contacts[0].normal * _impulse; 
             ballRb.AddForce(force, ForceMode.Impulse); 
         }
     }
