@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private int _score = 0;
     private float _ballSpawnTimer = 0f;
     private float _ballLifetime = 20f;
-    private float _gameTimer = 60f; 
+    private float _gameTimer = 90f; 
     private bool _isGameOver = false; 
 
     private void Awake()
