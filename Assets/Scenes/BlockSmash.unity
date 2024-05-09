@@ -20255,6 +20255,8 @@ MonoBehaviour:
   generationAreaMin: {x: 1.54, y: 0.11, z: -1.55}
   generationAreaMax: {x: 8.28, y: 2.52, z: 2.64}
   numberOfShapes: 30
+  spawnInterval: 1
+  moveInterval: 2
 --- !u!4 &1940138586
 Transform:
   m_ObjectHideFlags: 0
@@ -23374,11 +23376,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3678189693636920070, guid: 1eeda0a45aa05a44cac0af8f38966408,
-        type: 3}
-      propertyPath: ballSpawnPoint
-      value: 
-      objectReference: {fileID: 920639032}
     - target: {fileID: 3739853977749168766, guid: 1eeda0a45aa05a44cac0af8f38966408,
         type: 3}
       propertyPath: m_LocalPosition.x
