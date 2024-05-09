@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private AudioSource _explosionAudioSource;
     [SerializeField] private TextMeshPro _scoreText;
+    [SerializeField] private TextMeshPro _timerText; 
 
     private int _score = 0;
     private float _ballSpawnTimer = 0f;
     private float _ballLifetime = 20f;
+    private float _gameTimer = 60f; 
+    private bool _isGameOver = false; 
 
     private void Awake()
     {
@@ -25,13 +28,24 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _ballSpawnTimer += Time.deltaTime;
-        
-        if (_ballSpawnTimer >= _ballLifetime)
+        if (!_isGameOver) 
         {
-            DestroyOldBall();
-            SpawnNewBall();
-            _ballSpawnTimer = 0f;
+            _ballSpawnTimer += Time.deltaTime;
+            _gameTimer -= Time.deltaTime;
+
+            UpdateTimerText();
+
+            if (_ballSpawnTimer >= _ballLifetime)
+            {
+                DestroyOldBall();
+                SpawnNewBall();
+                _ballSpawnTimer = 0f;
+            }
+
+            if (_gameTimer <= 0f)
+            {
+                EndGame();
+            }
         }
     }
 
@@ -71,5 +85,23 @@ public class GameManager : MonoBehaviour
         {
             _scoreText.text = "Score: " + _score.ToString();
         }
+    }
+
+    private void UpdateTimerText()
+    {
+        if (_timerText != null)
+        {
+            _timerText.text = "Time: " + Mathf.RoundToInt(_gameTimer).ToString(); 
+        }
+    }
+
+    private void EndGame()
+    {
+        _isGameOver = true;
+    }
+    
+    public bool IsGameOver()
+    {
+        return _isGameOver;
     }
 }

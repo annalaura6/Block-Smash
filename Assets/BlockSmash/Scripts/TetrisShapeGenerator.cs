@@ -11,11 +11,13 @@ public class TetrisShapeGenerator : MonoBehaviour
 
     private float _spawnTimer;
     private float _moveTimer;
+    private GameManager _gameManager;
 
     void Start()
     {
         _spawnTimer = 0f;
         _moveTimer = 0f;
+        _gameManager = GameManager.Instance; 
     }
 
     void Update()
@@ -23,16 +25,19 @@ public class TetrisShapeGenerator : MonoBehaviour
         _spawnTimer += Time.deltaTime;
         _moveTimer += Time.deltaTime;
         
-        if (_spawnTimer >= _spawnInterval)
+        if (!_gameManager.IsGameOver()) 
         {
-            GenerateShape();
-            _spawnTimer = 0f;
-        }
-        
-        if (_moveTimer >= Time.deltaTime)
-        {
-            MoveShapes();
-            _moveTimer = 0f;
+            if (_spawnTimer >= _spawnInterval)
+            {
+                GenerateShape();
+                _spawnTimer = 0f;
+            }
+            
+            if (_moveTimer >= Time.deltaTime)
+            {
+                MoveShapes();
+                _moveTimer = 0f;
+            }
         }
     }
 
