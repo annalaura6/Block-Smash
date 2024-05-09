@@ -20625,16 +20625,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tetrisShapes:
-  - {fileID: 4194134256303729706, guid: 1eeda0a45aa05a44cac0af8f38966408, type: 3}
+  - {fileID: 7008647697686631870, guid: 93d67481b73af334eb7793c9428d8ee4, type: 3}
   - {fileID: 7008647697686631870, guid: 93d67481b73af334eb7793c9428d8ee4, type: 3}
   - {fileID: 4633243653233915506, guid: 5a05d14c234c0cb4485da18f11fe24d1, type: 3}
   - {fileID: 9137843476186592197, guid: 9c14ca23fb3791946b7f84a9381b0cb8, type: 3}
   - {fileID: 4825295774054878772, guid: 4ca2e65cf034ebc4789e60a155a55005, type: 3}
+  - {fileID: 4194134256303729706, guid: 1eeda0a45aa05a44cac0af8f38966408, type: 3}
   _generationAreaMin: {x: 2.36, y: 0.14, z: -1.26}
   _generationAreaMax: {x: 8.9, y: 1.77, z: 2.21}
-  _numberOfShapes: 30
+  _numberOfShapes: 10
   _spawnInterval: 0.5
-  moveSpeed: 0.7
+  moveSpeed: 0.6
 --- !u!4 &1940138586
 Transform:
   m_ObjectHideFlags: 0
