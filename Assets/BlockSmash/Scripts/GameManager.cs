@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Singleton instance reference
-    public GameObject ballPrefab; // Reference to the ball prefab
-    public Transform ballSpawnPoint; // Transform where the new ball will spawn
-
+    public static GameManager Instance;
+    
+    [SerializeField] private GameObject _ballPrefab; 
+    [SerializeField] private Transform _ballSpawnPoint;
+    [SerializeField] private GameObject _explosionPrefab;
+    [SerializeField] private AudioSource _explosionAudioSource;
+    
+    private AudioSource _audioSource;
     private void Awake()
     {
-        // Initialize the singleton instance
         if (Instance == null)
             Instance = this;
         else
@@ -18,6 +21,15 @@ public class GameManager : MonoBehaviour
 
     public void SpawnNewBall()
     {
-        Instantiate(ballPrefab, ballSpawnPoint.position, Quaternion.identity);
+        Instantiate(_ballPrefab, _ballSpawnPoint.position, Quaternion.identity);
+    }
+    public void PlayExplosion(Vector3 position)
+    {
+        Instantiate(_explosionPrefab, position, Quaternion.identity);
+        
+        if (_explosionAudioSource != null)
+        {
+            _explosionAudioSource.Play(); 
+        }
     }
 }
