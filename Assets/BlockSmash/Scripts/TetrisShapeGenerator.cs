@@ -53,11 +53,18 @@ public class TetrisShapeGenerator : MonoBehaviour
     void MoveShapes()
     {
         GameObject[] shapes = GameObject.FindGameObjectsWithTag("TetrisShape");
-
+        
         foreach (GameObject shape in shapes)
         {
-            // Move the shape towards the user
             shape.transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+        
+        foreach (GameObject shape in shapes)
+        {
+            if (shape.transform.position.x <= _generationAreaMin.x)
+            {
+                Destroy(shape);
+            }
         }
     }
     

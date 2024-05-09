@@ -15801,7 +15801,7 @@ Transform:
   m_GameObject: {fileID: 1477465945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77, y: -0.089, z: -0.734}
+  m_LocalPosition: {x: -1.449, y: -0.06, z: -1.113}
   m_LocalScale: {x: 0.47851, y: 0.02142397, z: 0.47851}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20250,13 +20250,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955265e8f44e96489dbd5c1ce9f5213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tetrisShapes:
+  _tetrisShapes:
   - {fileID: 4194134256303729706, guid: 1eeda0a45aa05a44cac0af8f38966408, type: 3}
-  generationAreaMin: {x: 1.54, y: 0.11, z: -1.55}
-  generationAreaMax: {x: 8.28, y: 2.52, z: 2.64}
-  numberOfShapes: 30
-  spawnInterval: 1
-  moveInterval: 2
+  _generationAreaMin: {x: 2.36, y: 0.11, z: -1.55}
+  _generationAreaMax: {x: 8.85, y: 2.52, z: 2.64}
+  _numberOfShapes: 30
+  _spawnInterval: 1
+  moveSpeed: 1
 --- !u!4 &1940138586
 Transform:
   m_ObjectHideFlags: 0
@@ -23079,14 +23079,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3764251833283650351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.49822113, y: -0.48547125, z: -0.5142546, w: 0.50163287}
-  m_LocalPosition: {x: 0.698, y: 0.814, z: -0.844}
+  m_LocalRotation: {x: -0.46999624, y: 0.5128451, z: 0.5171361, w: 0.49866182}
+  m_LocalPosition: {x: 0.78905547, y: 0.8245187, z: -1.256217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 339553117}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -87.651, y: 38.244, z: -128.236}
+  m_LocalEulerAnglesHint: {x: -87.651, y: 38.244, z: 55.271}
 --- !u!4 &897075693085395117
 Transform:
   m_ObjectHideFlags: 0
