@@ -22,22 +22,27 @@ public class TetrisShapeGenerator : MonoBehaviour
 
     void Update()
     {
-        _spawnTimer += Time.deltaTime;
-        _moveTimer += Time.deltaTime;
-        
         if (!_gameManager.IsGameOver()) 
         {
+            _spawnTimer += Time.deltaTime;
+            _moveTimer += Time.deltaTime;
+
             if (_spawnTimer >= _spawnInterval)
             {
                 GenerateShape();
                 _spawnTimer = 0f;
             }
-            
+
             if (_moveTimer >= Time.deltaTime)
             {
                 MoveShapes();
                 _moveTimer = 0f;
             }
+        }
+        
+        if (_gameManager.IsGameOver() && GameObject.FindGameObjectsWithTag("TetrisShape").Length > 0)
+        {
+            DestroyAllShapes();
         }
     }
 
@@ -53,7 +58,6 @@ public class TetrisShapeGenerator : MonoBehaviour
 
         Instantiate(shapeToSpawn, spawnPosition, Quaternion.identity);
     }
-
 
     void MoveShapes()
     {
@@ -72,7 +76,16 @@ public class TetrisShapeGenerator : MonoBehaviour
             }
         }
     }
-    
+
+    void DestroyAllShapes()
+    {
+        GameObject[] shapes = GameObject.FindGameObjectsWithTag("TetrisShape");
+        foreach (GameObject shape in shapes)
+        {
+            Destroy(shape);
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
