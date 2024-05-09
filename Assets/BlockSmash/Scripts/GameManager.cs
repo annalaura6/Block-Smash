@@ -1,16 +1,19 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
-    [SerializeField] private GameObject _ballPrefab; 
+
+    [SerializeField] private GameObject _ballPrefab;
     [SerializeField] private Transform _ballSpawnPoint;
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private AudioSource _explosionAudioSource;
-    
+    [SerializeField] private TextMeshPro _scoreText;
+
+    private int _score = 0;
     private float _ballSpawnTimer = 0f;
-    private float _ballLifetime = 30f;
+    private float _ballLifetime = 20f;
 
     private void Awake()
     {
@@ -22,15 +25,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Increment the timer
         _ballSpawnTimer += Time.deltaTime;
-
-        // Check if the ball has exceeded its lifetime
+        
         if (_ballSpawnTimer >= _ballLifetime)
         {
             DestroyOldBall();
             SpawnNewBall();
-            _ballSpawnTimer = 0f; // Reset the timer
+            _ballSpawnTimer = 0f;
         }
     }
 
@@ -42,10 +43,10 @@ public class GameManager : MonoBehaviour
     public void PlayExplosion(Vector3 position)
     {
         Instantiate(_explosionPrefab, position, Quaternion.identity);
-        
+
         if (_explosionAudioSource != null)
         {
-            _explosionAudioSource.Play(); 
+            _explosionAudioSource.Play();
         }
     }
 
@@ -55,6 +56,20 @@ public class GameManager : MonoBehaviour
         if (oldBall != null)
         {
             Destroy(oldBall);
+        }
+    }
+
+    public void IncrementScore()
+    {
+        _score++;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        if (_scoreText != null)
+        {
+            _scoreText.text = "Score: " + _score.ToString();
         }
     }
 }

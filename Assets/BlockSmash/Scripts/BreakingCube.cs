@@ -1,4 +1,3 @@
-// BreakingCube.cs
 using UnityEngine;
 
 public class BreakingCube : MonoBehaviour
@@ -8,12 +7,14 @@ public class BreakingCube : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             GameManager.Instance.PlayExplosion(transform.position);
-            
+
             Destroy(collision.gameObject);
-            
+
             GameManager.Instance.SpawnNewBall();
-            
+
             Destroy(gameObject);
+            
+            GameManager.Instance.IncrementScore();
         }
     }
 }

@@ -20634,7 +20634,7 @@ MonoBehaviour:
   _generationAreaMax: {x: 8.9, y: 1.77, z: 2.21}
   _numberOfShapes: 30
   _spawnInterval: 0.5
-  moveSpeed: 1
+  moveSpeed: 0.7
 --- !u!4 &1940138586
 Transform:
   m_ObjectHideFlags: 0
@@ -20667,6 +20667,7 @@ MonoBehaviour:
   _ballSpawnPoint: {fileID: 920639032}
   _explosionPrefab: {fileID: 289116334}
   _explosionAudioSource: {fileID: 1940138588}
+  _scoreText: {fileID: 245476197}
 --- !u!82 &1940138588
 AudioSource:
   m_ObjectHideFlags: 0
